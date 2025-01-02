@@ -1,0 +1,51 @@
+
+
+/* Profile photo container */
+.profile-photo {
+  position: relative;
+  width: 150px; /* Adjust size */
+  height: 150px;
+  border-radius: 50%; /* Circle shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Profile photo image styling */
+.profile-photo img {
+  width: 90%; /* Adjust image size */
+  height: 90%;
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Ensures photo fits without distortion */
+}
+
+/* Pseudo-element to create the dashed border */
+.profile-photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Ensures circular shape */
+  border: 4px dashed rgba(0, 255, 255, 0.7); /* Dashed border */
+  animation: rotate-border 10s linear infinite; /* Rotate the border */
+  box-sizing: border-box;
+}
+
+/* Keyframes for rotating the dashed border */
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg); /* Initial state */
+  }
+  100% {
+    transform: rotate(360deg); /* Final state (360-degree rotation) */
+  }
+}
+
+/*   
+   <div class="profile-photo">
+        <img src="/assets/profile_photo.png" alt="Profile Photo" />
+      </div>
+ */

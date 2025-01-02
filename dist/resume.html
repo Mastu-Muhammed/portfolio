@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="./dist/output.css" />
+
+    <style>
+      /* Prevent scrollbar on main page */
+      @media screen and (min-width: 480px) {
+        body {
+          overflow: hidden;
+        }
+
+        /* Allow scrolling in specific sections */
+        #education-info,
+        #skills-info {
+          overflow-y: auto; /* Enable vertical scrolling */
+          max-height: 100%; /* Restrict to full view height */
+        }
+      }
+      /* Keyframe Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      .slide-in {
+        animation: slideIn 0.5s ease-out;
+      }
+    </style>
+    <title>Resume</title>
+  </head>
+  <body class="bg-[#1C1B22] font-primary text-white">
+    <div class="bg-[#1C1B22] font-primary text-white sticky top-0 shadow z-50">
+      <nav class="container flex items-center justify-between mx-auto p-4">
+        <!-- Brand Logo -->
+        <a href="index.html">
+          <div class="text-lg font-bold cursor-pointer">
+            Muhammed <span class="text-2xl text-[#05FD9E]">.</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links (Hidden on Mobile) -->
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a
+              href="index.html"
+              class="hover:text-[#05FD9E] transition hover:text-decoration-line:underline"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="service.html" class="hover:text-[#05FD9E] transition"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="resume.html" class="hover:text-[#05FD9E] transition"
+              >Resume</a
+            >
+          </li>
+          <li>
+            <a href="work.html" class="hover:text-[#05FD9E] transition">Work</a>
+          </li>
+          <li>
+            <a href="contact.html" class="hover:text-[#05FD9E] transition"
+              >Contact</a
+            >
+          </li>
+        </ul>
+
+        <!-- Hamburger Menu Icon (Visible on Mobile) -->
+        <div class="absolute right-3 md:hidden">
+          <button id="menu-btn" class="text-2xl focus:outline-none transition">
+            <span id="menu-icon">&#9776;</span>
+            <span id="cancel-icon" class="hidden">&times;</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#28272c] text-white">
+        <ul class="space-y-4 p-4">
+          <li>
+            <a
+              href="index.html"
+              id="home-btn"
+              class="block hover:text-[#05FD9E] transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="service.html"
+              id="Services-btn"
+              class="block hover:text-[#05FD9E] transition"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="resume.html"
+              id="project-btn"
+              class="block hover:text-[#05FD9E] transition"
+              >Resume</a
+            >
+          </li>
+          <li>
+            <a
+              href="work.html"
+              id="project-btn"
+              class="block hover:text-[#05FD9E] transition"
+              >Work</a
+            >
+          </li>
+          <li>
+            <a href="contact.html" class="block hover:text-[#05FD9E] transition"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- resume -->
+    <div
+      id="Resume"
+      class="md:px-32 md:py-10 mx-5 scroll-mt-16 h-screen bg-[#1C1B22] flex flex-col md:flex-row gap-5"
+    >
+      <!-- menu part -->
+      <div class="flex flex-col gap-3 md:w-1/3">
+        <h1 class="text-4xl font-bold">Why hire me?</h1>
+        <p class="text-lg py-4 text-[#95949B]">
+          I create engaging content and intuitive UI designs that simplify
+          complex web development concepts.
+        </p>
+        <div
+          id="experience"
+          class="text-center py-2 px-4 rounded-lg bg-[#00FF99] hover:bg-[#00FF99] hover:text-[#28272C]"
+        >
+          Experience
+        </div>
+        <div
+          id="education"
+          class="text-center py-2 px-4 rounded-lg bg-[#28272C] hover:bg-[#00FF99] hover:text-[#28272C]"
+        >
+          Education
+        </div>
+        <div
+          id="skills"
+          class="text-center py-2 px-4 rounded-lg bg-[#28272C] hover:bg-[#00FF99] hover:text-[#28272C]"
+        >
+          Skills
+        </div>
+        <div
+          id="aboutme"
+          class="text-center py-2 px-4 rounded-lg bg-[#28272C] hover:bg-[#00FF99] hover:text-[#28272C]"
+        >
+          About Me
+        </div>
+      </div>
+      <!-- Details -->
+      <div class="md:w-2/3">
+        <div id="experience-info" class="h-full w-full flex flex-col gap-6">
+          <h2 class="text-3xl font-bold">My Experience</h2>
+          <p class="text-[#95949B]">
+            As a passionate front-end web developer, I excel at crafting
+            visually appealing and functional websites. I am driven by my
+            curiosity to learn and a desire to bring innovative ideas to life
+            through code. My experience includes working with modern web
+            technologies and tools to deliver seamless user experiences.
+          </p>
+
+          <div class="">
+            <div class="bg-[#28272C] p-4 rounded-lg">
+              <p class="text-[#00FF99] texr-xl mb-2">Summer 2024</p>
+              <p class="mb-5 text-2xl">Front-End Web Developer Intern</p>
+              <p class="text-gray-300">
+                <span class="text-center mr-2 text-[#00FF99]">•</span>Sharp
+                Enterprice.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="education-info" class="hidden h-full w-full flex-col gap-6">
+          <h2 class="text-3xl font-bold">My Education</h2>
+          <p class="text-[#95949B] my-6">
+            I am pursuing a BE in Information Technology (2021-2025) at Gujarat
+            Technological University, maintaining a CGPA of 7.87. My strong
+            academic foundation also includes scoring 74% in 12th Science (2021)
+            and 81% in Standard 10 (2019), both from GSEB.
+          </p>
+
+          <div
+            class="grid md:grid-cols-2 gap-4 overflow-scroll overflow-x-hidden"
+          >
+            <div class="bg-[#28272C] p-4 rounded-lg">
+              <p class="text-[#00FF99] texr-xl mb-2">2021-2025</p>
+              <p class="mb-2 text-2xl">BE - Information Technology</p>
+              <p class="text-lg mb-2 text-[#95949B]">
+                CGPA <span class="ml-2 text-white">7.87</span>
+              </p>
+              <p class="text-gray-300">
+                <span class="text-center mr-2 text-[#00FF99]">•</span>Gujarat
+                Technological Univercity
+              </p>
+            </div>
+            <div class="bg-[#28272C] p-4 rounded-lg">
+              <p class="text-[#00FF99] texr-xl mb-2">2021</p>
+              <p class="mb-5 text-2xl">12th Science (GSEB)</p>
+              <p class="text-lg mb-2 text-[#95949B]">
+                Percentage<span class="ml-2 text-white">74</span>
+              </p>
+              <p class="text-gray-300">
+                <span class="text-center mr-2 text-[#00FF99]">•</span>GNFC
+                Narmada Vidyalaya
+              </p>
+            </div>
+            <div class="bg-[#28272C] p-4 rounded-lg">
+              <p class="text-[#00FF99] texr-xl mb-2">2019</p>
+              <p class="mb-5 text-2xl">Standard 10 (GSEB)</p>
+              <p class="text-lg mb-2 text-[#95949B]">
+                Percentage<span class="ml-2 text-white">81</span>
+              </p>
+              <p class="text-gray-300">
+                <span class="text-center mr-2 text-[#00FF99]">•</span>Anjumane E
+                Talim High School
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="skills-info" class="hidden h-full w-full flex-col gap-6">
+          <h2 class="text-3xl font-bold">My Skills</h2>
+          <p class="text-[#95949B] my-6">
+            I specialize in creating responsive and visually appealing websites
+            using modern tools and technologies. My expertise includes both
+            design and development, ensuring seamless user experiences.
+          </p>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36 group hover:bg-[#28272C]"
+            >
+              <svg
+                width="29"
+                height="40"
+                viewBox="0 0 29 40"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+                class="group-hover:fill-[#00FF99]"
+              >
+                <path
+                  d="M2.63657 0H4.43947V1.7813H6.08871V0H7.89177V5.39407H6.08887V3.58772H4.43963V5.39407H2.63672V0H2.63657ZM10.2626 1.78881H8.67549V0H13.6535V1.78881H12.0656V5.39407H10.2627V1.78881H10.2626ZM14.4435 0H16.3237L17.48 1.89535L18.6353 0H20.5158V5.39407H18.7202V2.72056L17.4799 4.63837H17.449L16.2078 2.72056V5.39407H14.4435V0ZM21.4132 0H23.2166V3.61121H25.7521V5.39407H21.4132V0ZM0 7.86109L2.57895 36.7875L14.1519 40L25.757 36.7828L28.3387 7.86101L0 7.86109ZM22.9592 14.7256L22.7977 16.5242L22.7267 17.3217H22.7151H14.1694H14.157H9.15064L9.47487 20.9544H14.157H14.1694H21.4477H22.4038L22.3172 21.9072L21.4835 31.2473L21.4301 31.8463L14.1694 33.8588V33.8594L14.1531 33.864L6.88582 31.8465L6.38868 26.2761H8.03017H9.9501L10.2027 29.1056L14.1537 30.1726L14.157 30.1716V30.1713L18.114 29.1036L18.5256 24.5023H14.1694H14.157H6.23024L5.3583 14.7256L5.27337 13.774H14.157H14.1694H23.0441L22.9592 14.7256Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36 group hover:bg-[#28272C]"
+            >
+              <svg
+                width="29"
+                height="40"
+                viewBox="0 0 29 40"
+                xmlns="http://www.w3.org/2000/svg"
+                class="group hover:fill-[#00FF99] fill-[#fff]"
+              >
+                <path
+                  d="M10.2121 3.61497V5.3385H5.80489V0H10.2121V1.88886H7.69374V3.61497H10.2121ZM14.7426 1.88886H16.5033V0H12.0956C12.0956 0 12.0956 0.948107 12.0956 1.88886C12.6852 2.47853 12.9927 2.7608 13.8456 3.61364C13.347 3.61364 12.0956 3.61529 12.0956 3.61529V5.3385H16.5033V3.61497L14.7426 1.88886ZM20.9896 1.88886H22.7501V0H18.3426C18.3426 0 18.3426 0.948107 18.3426 1.88886C18.9321 2.47853 19.2397 2.7608 20.0925 3.61364C19.5942 3.61364 18.3426 3.61529 18.3426 3.61529V5.3385H22.7502V3.61497L20.9896 1.88886ZM28.5552 7.87566L25.8778 36.8767L14.2775 40L2.67696 36.8767L0 7.87566H28.5552ZM23.1604 13.7725H14.267H5.21647L5.64927 17.2746H14.267H14.7511L14.267 17.4761L5.96426 20.9342L6.23964 24.3573L14.267 24.3834L18.5694 24.3971L18.2938 28.9616L14.267 30.0954V30.0918L14.234 30.1008L10.3448 29.1191L10.1088 26.2858H10.096H6.48849H6.47581L6.94799 31.7556L14.267 33.9199V33.916L14.2802 33.9199L21.56 31.7949L22.5046 20.9343H14.267H14.2467L14.267 20.9255L22.8061 17.2747L23.1604 13.7725Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36 group hover:bg-[#28272C]"
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="group hover:fill-[#00FF99] fill-[#fff]"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M30.656 36.8643C27.166 36.8643 24.91 35.2004 23.81 33.0244L26.87 31.252C27.676 32.568 28.722 33.5342 30.576 33.5342C32.132 33.5342 33.126 32.7556 33.126 31.6816C33.126 30.0656 30.97 29.4342 29.448 28.7822C26.736 27.6282 24.936 26.1782 24.936 23.1162C24.936 20.2982 27.084 18.1504 30.442 18.1504C32.83 18.1504 34.55 18.9822 35.784 21.1562L32.858 23.0361C32.214 21.8821 31.516 21.4258 30.442 21.4258C29.34 21.4258 28.642 22.1241 28.642 23.0361C28.642 24.1641 29.34 24.6204 30.952 25.3184C34.33 26.7664 36.886 27.9039 36.886 31.6279C36.886 35.0119 34.228 36.8643 30.656 36.8643ZM22 31.1982C22 35.0922 19.602 37.1504 16.272 37.1504C13.264 37.1504 11.462 36 10.576 34H10.546H10.532H10.524L13.582 31.8623C14.172 32.9083 14.704 33.6504 15.992 33.6504C17.228 33.6504 18 33.0245 18 31.1465V18H22V31.1982ZM0 40H40V0H0V40Z"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36 group hover:bg-[#28272C]"
+            >
+              <svg
+                width="40"
+                height="24"
+                viewBox="0 0 40 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="group hover:fill-[#00FF99] fill-[#fff]"
+              >
+                <path
+                  d="M20 0C14.6667 0 11.3333 2.66667 10 8C12 5.33333 14.3333 4.33333 17 5C18.5217 5.38 19.6083 6.48333 20.8133 7.70667C22.775 9.69667 25.0433 12 30 12C35.3333 12 38.6667 9.33333 40 4C38 6.66667 35.6667 7.66667 33 7C31.4783 6.62 30.3917 5.51667 29.1867 4.29333C27.2267 2.30333 24.9583 0 20 0ZM10 12C4.66667 12 1.33333 14.6667 0 20C2 17.3333 4.33333 16.3333 7 17C8.52167 17.38 9.60833 18.4833 10.8133 19.7067C12.775 21.6967 15.0433 24 20 24C25.3333 24 28.6667 21.3333 30 16C28 18.6667 25.6667 19.6667 23 19C21.4783 18.62 20.3917 17.5167 19.1867 16.2933C17.2267 14.3033 14.9583 12 10 12Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36"
+            >
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 53 52"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="group hover:fill-[#00FF99] fill-[#fff]"
+              >
+                <g clip-path="url(#clip0_296_101)">
+                  <path
+                    d="M26.2504 29.8797C28.8135 29.8797 30.8914 27.8018 30.8914 25.2387C30.8914 22.6755 28.8135 20.5977 26.2504 20.5977C23.6872 20.5977 21.6094 22.6755 21.6094 25.2387C21.6094 27.8018 23.6872 29.8797 26.2504 29.8797Z"
+                  />
+                  <path
+                    d="M26.2526 16.9109C32.2499 16.9109 37.9471 17.7564 42.2783 19.2475C47.0886 20.9035 50.0228 23.3518 50.0228 25.2383C50.0228 27.2477 46.8539 29.8565 41.7086 31.5613C37.6123 32.9184 32.1318 33.6582 26.2526 33.6582C20.0763 33.6582 14.5339 32.9329 10.4852 31.549C7.95051 30.6826 5.85728 29.5567 4.42253 28.328C3.13326 27.2239 2.48236 26.1277 2.48236 25.2383C2.48236 23.3455 5.30429 20.9311 10.0108 19.2902C14.3439 17.7796 20.1804 16.9109 26.2526 16.9109ZM26.2526 14.6902C19.9445 14.6902 13.8635 15.5953 9.27981 17.1933C3.77637 19.1121 0.261719 22.1191 0.261719 25.2383C0.261719 28.4598 4.03476 31.691 9.76697 33.6502C14.0757 35.123 19.8511 35.8788 26.2526 35.8788C32.3534 35.8788 38.0645 35.108 42.407 33.6692C48.3662 31.6948 52.2434 28.5029 52.2434 25.2383C52.2434 22.1078 48.6154 19.0805 43.0011 17.1478C38.4229 15.5717 32.4838 14.6902 26.2526 14.6902ZM18.9987 21.1013C21.9948 15.906 25.5734 11.3932 29.0288 8.38601C32.8664 5.04629 36.4532 3.72759 38.0874 4.66998C39.8282 5.67381 40.505 9.72225 39.4113 15.0311C38.5406 19.2576 36.4435 24.3748 33.5064 29.4678C30.421 34.8181 27.0239 39.2569 23.8023 42.0729C21.7855 43.8358 19.7645 45.0866 17.9833 45.7157C16.3828 46.2809 15.108 46.2971 14.3375 45.8528C12.6978 44.9072 12.0162 41.2566 12.946 36.3596C13.8019 31.8515 15.9651 26.3616 18.9987 21.1013ZM17.075 19.9919C13.9236 25.4566 11.6698 31.1765 10.7643 35.9454C9.67708 41.6714 10.5261 46.2182 13.2281 47.7765C16.019 49.3859 20.7029 47.7316 25.2638 43.7448C28.6922 40.748 32.2321 36.1226 35.4301 30.5771C38.4779 25.2921 40.6632 19.9596 41.5863 15.4791C42.853 9.33057 42.0248 4.37713 39.1967 2.74628C36.4849 1.18246 32.05 2.81298 27.571 6.71088C23.9185 9.8895 20.1879 14.5941 17.075 19.9919ZM19.0056 29.4799C16.0009 24.2896 13.8783 18.9354 12.9987 14.4399C12.0218 9.44724 12.6707 5.68116 14.3033 4.73604C16.0424 3.72924 19.8878 5.1647 23.9409 8.76353C27.1678 11.6286 30.5538 16.001 33.4994 21.0892C36.5938 26.4343 38.7429 31.5943 39.5738 35.7917C40.0939 38.4194 40.1682 40.795 39.8237 42.6523C39.5141 44.3212 38.8915 45.4337 38.1217 45.8794C36.4835 46.8277 32.9803 45.5951 29.2022 42.344C25.724 39.351 22.048 34.7351 19.0056 29.4799ZM17.0838 30.5924C20.2444 36.0518 24.0744 40.861 27.7537 44.0272C32.1715 47.8288 36.5348 49.364 39.2343 47.8012C42.0224 46.1871 42.9285 41.303 41.7521 35.3605C40.868 30.8936 38.6285 25.5167 35.4212 19.9766C32.3646 14.6966 28.8361 10.1403 25.4153 7.10299C20.7211 2.93491 16.016 1.17855 13.1907 2.81421C10.4815 4.38257 9.67925 9.03919 10.8194 14.8663C11.7491 19.6181 13.9619 25.1998 17.0838 30.5924Z"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_296_101">
+                    <rect
+                      width="52"
+                      height="52"
+                      fill="white"
+                      transform="translate(0.253906 -0.00732422)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36 group hover:bg-[#28272C]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="44px"
+                height="44px"
+                class="group hover:fill-[#00FF99] fill-[#fff]"
+              >
+                <path
+                  d="M8.537 24L8.537 24c-1.933 0-3.5-1.567-3.5-3.5l0 0c0-1.933 1.567-3.5 3.5-3.5h3.5v3.5C12.037 22.433 10.47 24 8.537 24zM16.5 8H13V1h3.5C18.433 1 20 2.567 20 4.5l0 0C20 6.433 18.433 8 16.5 8zM8.5 8H12V1H8.5C6.567 1 5 2.567 5 4.5l0 0C5 6.433 6.567 8 8.5 8zM8.5 16H12V9H8.5C6.567 9 5 10.567 5 12.5l0 0C5 14.433 6.567 16 8.5 16zM16 9A3 3 0 1016 15 3 3 0 1016 9z"
+                />
+              </svg>
+            </div>
+            <div
+              class="bg-[#28272C] p-4 rounded-lg flex justify-center items-center h-36 w-36 group hover:bg-[#28272C]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="50"
+                height="50"
+                viewBox="0 0 50 50"
+                class="group hover:fill-[#00FF99] fill-[#fff]"
+              >
+                <path
+                  d="M 25 2 C 20.941406 2 18.1875 2.96875 16.4375 4.375 C 14.6875 5.78125 14 7.589844 14 9.09375 L 14 14 L 24 14 L 24 15 L 9.09375 15 C 7.265625 15 5.410156 15.792969 4.09375 17.46875 C 2.777344 19.144531 2 21.644531 2 25 C 2 28.355469 2.777344 30.855469 4.09375 32.53125 C 5.410156 34.207031 7.265625 35 9.09375 35 L 14 35 L 14 40.90625 C 14 42.410156 14.6875 44.21875 16.4375 45.625 C 18.1875 47.03125 20.941406 48 25 48 C 29.058594 48 31.8125 47.03125 33.5625 45.625 C 35.3125 44.21875 36 42.410156 36 40.90625 L 36 36 L 26 36 L 26 35 L 40.90625 35 C 42.734375 35 44.589844 34.207031 45.90625 32.53125 C 47.222656 30.855469 48 28.355469 48 25 C 48 21.644531 47.222656 19.144531 45.90625 17.46875 C 44.589844 15.792969 42.734375 15 40.90625 15 L 36 15 L 36 9.09375 C 36 7.550781 35.316406 5.738281 33.5625 4.34375 C 31.808594 2.949219 29.054688 2 25 2 Z M 25 4 C 28.746094 4 31.015625 4.875 32.3125 5.90625 C 33.609375 6.9375 34 8.136719 34 9.09375 L 34 21 C 34 22.65625 32.65625 24 31 24 L 19 24 C 16.941406 24 15.167969 25.269531 14.40625 27.0625 C 14.277344 27.359375 14.160156 27.675781 14.09375 28 C 14.027344 28.324219 14 28.65625 14 29 L 14 33 L 9.09375 33 C 7.824219 33 6.648438 32.503906 5.6875 31.28125 C 4.726563 30.058594 4 28.042969 4 25 C 4 21.957031 4.726563 19.941406 5.6875 18.71875 C 6.648438 17.496094 7.824219 17 9.09375 17 L 26 17 L 26 12 L 16 12 L 16 9.09375 C 16 8.199219 16.386719 6.980469 17.6875 5.9375 C 18.988281 4.894531 21.257813 4 25 4 Z M 20 7 C 18.898438 7 18 7.898438 18 9 C 18 10.101563 18.898438 11 20 11 C 21.101563 11 22 10.101563 22 9 C 22 7.898438 21.101563 7 20 7 Z M 36 17 L 40.90625 17 C 42.175781 17 43.351563 17.496094 44.3125 18.71875 C 45.273438 19.941406 46 21.957031 46 25 C 46 28.042969 45.273438 30.058594 44.3125 31.28125 C 43.351563 32.503906 42.175781 33 40.90625 33 L 24 33 L 24 38 L 34 38 L 34 40.90625 C 34 41.800781 33.613281 43.019531 32.3125 44.0625 C 31.011719 45.105469 28.742188 46 25 46 C 21.257813 46 18.988281 45.105469 17.6875 44.0625 C 16.386719 43.019531 16 41.800781 16 40.90625 L 16 29 C 16 28.792969 16.023438 28.601563 16.0625 28.40625 C 16.34375 27.039063 17.550781 26 19 26 L 31 26 C 33.746094 26 36 23.746094 36 21 Z M 30 39 C 28.898438 39 28 39.898438 28 41 C 28 42.101563 28.898438 43 30 43 C 31.101563 43 32 42.101563 32 41 C 32 39.898438 31.101563 39 30 39 Z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div id="aboutme-info" class="hidden md:text-left h-full w-full">
+          <h2 class="text-3xl font-bold text-[#FCFCFF]">About Me</h2>
+          <p class="text-[#95949B] my-6">
+            I am a passionate front-end developer with over a year of experience
+            in crafting user-friendly and visually appealing web solutions. I am
+            available for freelance projects and fluent in English, Gujarati,
+            and Hindi.
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <p>
+              <span class="text-[#95949B] mr-2">Name</span>
+              <span class="font-semibold text-xxl">Mastu Muhammed</span>
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Phone</span>
+              <span class="font-semibold text-xxl">(+91) 9054991966</span>
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Nationality</span>
+              <span class="font-semibold text-xxl">Indian</span>
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Address</span>
+              <span class="font-semibold text-xxl">Bharuch,Gujarat</span>
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Experience</span>
+              <span class="font-semibold text-xxl">1+ Years</span>
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Email</span>
+              <span class="font-semibold text-xxl"
+                >muhammedmastu123@gmail.com</span
+              >
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Freelance</span>
+              <span class="font-semibold text-xxl">Available</span>
+            </p>
+            <p>
+              <span class="text-[#95949B] mr-2">Languages</span>
+              <span class="font-semibold text-xxl"
+                >English, Gujarati, Hindi</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

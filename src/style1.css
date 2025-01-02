@@ -1,0 +1,18 @@
+.profile-img {
+     width: 150px; /* Adjust size */
+     height: 150px;
+     border-radius: 50%; /* Circle shape */
+     border: 4px dashed #05FD9E;
+     padding: 5px;
+     animation: rotateBorder 5s linear infinite;
+   }
+   
+   @keyframes rotateBorder {
+     0% {
+       transform: rotate(0deg);
+     }
+     100% {
+       transform: rotate(360deg);
+     }
+   }
+   
