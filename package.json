@@ -4,6 +4,7 @@
   "main": "tailwind.config.js",
   "scripts": {
   "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  
 },
   "keywords": [],
   "author": "",
