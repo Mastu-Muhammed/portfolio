@@ -1,9 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;@layer utilities {
-     .font-primary {
+     /* .font-primary {
       font-family: monospace;
-     }
+     } */
    }
 /* width */
 ::-webkit-scrollbar {
